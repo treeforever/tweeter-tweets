@@ -1,0 +1,38 @@
+section.new-tweet {
+  position: relative;
+  margin-left: 2em;
+  margin-right: 2em;
+  top: 100px;
+  border-radius: 5px;
+  background-color: #f0f0f5;
+  width: 380px;
+  padding: 10px;
+}
+
+textarea {
+  display: inline-block;
+  width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+}
+
+input {
+  display: inline-block;
+  margin-left: auto;
+}
+
+h2 {
+  display: inline-block;
+  margin-top: 2px;
+  margin-left: auto;
+  border-bottom: 1px solid black;
+  width: 360px;
+}
+
+span.counter {
+  display: inline-block;
+  float: right;
+  font-size: 12px;
+  padding: 8px;
+}
