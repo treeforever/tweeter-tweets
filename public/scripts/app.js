@@ -55,35 +55,43 @@ var data = [
 
 
 function createTweetElement(data) {
-  //wrap header:
-  var $user = data.user;
-  var avatar = $user["avatars"]["small"];
-  var $avatar = $(`<img scr=${avatar}>`);
-  var $name = $(`<h1>${$user.name}</h1>`);
-  var $handle = $(`<p>${$user.handle}</p>`);
-  var $header = $('<header>').append($avatar).append($name).append($handle);
+  var timeStamp = function (data) {
+    var today = new Date().getTime();
+    var diffInHours = Math.abs(today - data.created_at) / (1000 * 3600);
 
-  //wrap text:
-  var $text = $('<div>').addClass('text').append(`<p>${data.content.text}</p>`);
+    if (diffInHours < 1) {
+      return "less than 1 hours ago";
+    }
+    else if (diffInHours <= 24) {
+      return `${Math.floor(diffInHours)} hours ago`;
+    }
+    else {
+      return`${Math.floor(diffInHours / 24)} days ago`;
+    }
+  };
 
-  //wrap footer:
-  // var howLongAgo = ???;
-  // var $time = $(`<p class='time'>${howLongAgo}</p>`);
-  var $time = $(`<p class='time'>10 days ago</p>`);
-  var $feedbackImages = $(`<img src="/images/feedback1.jpg" class="feedback"><img src="/images/feedback2.jpg" class="feedback"><img src="/images/feedback3.jpg" class="feedback">`);
-  var $footer = $('<footer>').append($time).append($feedbackImages);
+  var $tweet = $(`
+    <article class="tweet">
+      <header>
+        <img src="${data.user.avatars.small}">
+        <h2>${data.user.name}</h2>
+        <p>${data.user.handle}</p>
+      </header>
 
-  //stuff $header, $text, $footer into <article> (parent);
-  var $article = $("<article>").addClass("tweet");
-  var $tweet = $article.append($header).append($text).append($footer);
+      <div class="text">
+        <p>${data.content.text}</p>
+      </div>
 
+      <footer>
+        <p>${timeStamp(data)}</p>
+        <div class="hover">
+          <img src="/images/feedback1.jpg"><img src="/images/feedback2.jpg"><img src="/images/feedback3.jpg">
+        </div>
+      </footer>
+    </article>
+  `);
   return $tweet;
 }
-
-
-// $(document).ready(createTweetElement(tweetData));
-
-
 
 function renderTweets(data) {
   var $tweets = $("<div>").attr("id", "tweets-container");
@@ -91,7 +99,9 @@ function renderTweets(data) {
     var $tweet = createTweetElement(indiData);
     $tweets = $tweets.append($tweet);
   });
-  return $tweets;
+  $('main.container').append($tweets);
 }
 
-console.log(renderTweets(data));
+$(document).ready(function() {
+  renderTweets(data);
+});
