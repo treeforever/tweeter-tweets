@@ -55,7 +55,7 @@ var data = [
 
 
 function createTweetElement(data) {
-  var timeStamp = function (data) {
+  var timeStamp = function(data) {
     var today = new Date().getTime();
     var diffInHours = Math.abs(today - data.created_at) / (1000 * 3600);
 
@@ -94,14 +94,54 @@ function createTweetElement(data) {
 }
 
 function renderTweets(data) {
-  var $tweets = $("<div>").attr("id", "tweets-container");
+  var $tweets = $('div#tweets-container').empty();
   data.forEach((indiData) => {
     var $tweet = createTweetElement(indiData);
     $tweets = $tweets.append($tweet);
   });
-  $('main.container').append($tweets);
+  return $tweets;
+}
+
+function loadTweets() {
+  $.ajax({
+    url: "/tweets",
+    method: 'GET',
+    success: function(res) {
+      renderTweets(res);
+    }
+  });
+}
+
+function clearForm() {
+  $("form").click(function() {
+    $(this).closest('form').find("input[type=text], textarea").val("");
+});
+
 }
 
 $(document).ready(function() {
-  renderTweets(data);
+
+  loadTweets();
+
+  $('input').on('click', () => {
+    event.preventDefault();
+    $.ajax("/tweets", {
+      method: "POST",
+      data: $('form').serialize(),
+      success: function() {
+        loadTweets();
+        $('textarea').val("");
+      }
+    });
+  });
+
+  $("button#compose").on('click', () => {
+    $('.new-tweet').slideToggle('normal');
+    $('textarea').focus();
+  });
+
+
+
+
+
 });

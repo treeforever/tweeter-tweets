@@ -4,13 +4,13 @@ main {
   margin-right: 22.5%;
   margin-left: 22.5%;
   margin-top:-3%;
-  padding-top: 5%;
+  padding-top: 14%;
 }
 section.new-tweet {
   position: relative;
   margin-left: 10%;
   margin-right: 10%;
-  margin-top: 25%;
+  margin-top: 0;
   margin-bottom: 15%;
   border-radius: 5px;
   background-color: #f0f0f5;
@@ -37,11 +37,42 @@ section.new-tweet h2 {
   width: 100%;
 }
 
+div.flashMessage {
+  height: 18px;
+  margin-left: 38%;
+  margin-top: -5%;
+  margin-bottom: 3%;
+}
+
+p.validation-msg {
+  display: none;
+  font-size: 80%;
+  color: red;
+}
+
+
+p.lengthy-noshow {
+  display: none;
+  margin-left: 30%;
+  margin-top: -5%;
+  margin-bottom: 3%;
+  font-size: 80%;
+  color: red;
+}
+
+p.lengthy-show {
+  margin-left: 30%;
+  margin-top: -5%;
+  margin-bottom: 3%;
+  font-size: 80%;
+  color: red;
+}
+
 span.counter {
-  display: inline-block;
   float: right;
   font-size: 12px;
   padding: 8px;
+  margin-top: -31px;
 }
 
 .red {
@@ -106,7 +137,7 @@ article.tweet header img {
 
 /*Name*/
 article header h2 {
-  margin-left: 17%;
+  margin-left: 13%;
   margin-top: 1%;
 }
 

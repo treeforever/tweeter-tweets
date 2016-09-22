@@ -24,3 +24,22 @@
   font-size: 200%;
   vertical-align: top;
 }
+
+#compose {
+  float: right;
+    margin-top: 2%;
+    margin-right: 20%;
+    height: 54%;
+    border-radius: 5%;
+    width: 10%;
+    background: #ecf8f2;
+    color: #00a087;
+    border: 0.05em solid black;
+}
+
+
+
+#compose:hover {
+  background: white;
+  color: black;
+}
