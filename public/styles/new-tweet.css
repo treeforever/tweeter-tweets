@@ -22,11 +22,13 @@ textarea {
   display: inline-block;
   width: 100%;
   padding: 5px;
+  margin-bottom: 2%;
 }
 
 input {
   display: inline-block;
   margin-left: auto;
+  margin-bottom: 1%;
 }
 
 section.new-tweet h2 {
@@ -37,35 +39,12 @@ section.new-tweet h2 {
   width: 100%;
 }
 
-div.flashMessage {
-  height: 18px;
-  margin-left: 38%;
-  margin-top: -5%;
-  margin-bottom: 3%;
-}
-
 p.validation-msg {
   display: none;
   font-size: 80%;
+  margin-top: -8%;
   color: red;
-}
-
-
-p.lengthy-noshow {
-  display: none;
-  margin-left: 30%;
-  margin-top: -5%;
-  margin-bottom: 3%;
-  font-size: 80%;
-  color: red;
-}
-
-p.lengthy-show {
-  margin-left: 30%;
-  margin-top: -5%;
-  margin-bottom: 3%;
-  font-size: 80%;
-  color: red;
+  margin-left: 29%;
 }
 
 span.counter {
@@ -128,8 +107,9 @@ article header h2 {
 article header p {
   color: #999999;
   float: right;
-  margin-right: 0.4em;
+  margin-right: 0.3em;
   margin-top: -3em;
+  font-size: 0.8em;
 }
 
 div.text {

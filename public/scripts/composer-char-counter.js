@@ -11,15 +11,4 @@ $(document).ready(function() {
       counter.removeClass("red");
     }
   });
-
-  $('input').on('click', () => {
-    if ($('textarea').val().length === 0) {
-        event.preventDefault();
-      $('p#text-required').show().fadeOut(1900);
-    }
-    else if ($('textarea').val().length > 140) {
-      event.preventDefault();
-      $('p#length-limit').show().fadeOut(1900);
-    }
-  });
 });
