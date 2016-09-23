@@ -1,8 +1,8 @@
 'use strict';
 
 function timeCalculator(data) {
-  let today = new Date().getTime();
-  let diffInHours = Math.abs(today - data.created_at) / (1000 * 3600);
+  const today = new Date().getTime();
+  const diffInHours = Math.abs(today - data.created_at) / (1000 * 3600);
 
   if (diffInHours < 1) {
     return "less than 1 hours ago";

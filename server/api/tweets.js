@@ -36,6 +36,10 @@ module.exports = function(db) {
     });
   });
 
-  return tweets;
+  tweets.get("/user/:username", function(req, res) {
+    
 
+  });
+
+  return tweets;
 }
